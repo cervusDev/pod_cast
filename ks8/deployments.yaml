@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-cast
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: pod-cast
+  template:
+    metadata:
+      labels:
+        app: pod-cast
+    spec:
+      containers:
+      - name: pod-cast
+        image: cervusdev/pod-cast:latest
+        ports:
+        - containerPort: 3000
